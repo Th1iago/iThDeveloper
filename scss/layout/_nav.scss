@@ -1,0 +1,55 @@
+// ==========================================
+// NAVEGACIÓN
+// ==========================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.navbar {
+    background-color: $color-background;
+    padding: 0.8rem 2rem;
+    width: 100%;
+    @include flex-between;
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        @include transition-smooth;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.navbar-nav {
+    .nav-link {
+        color: $color-primary;
+        font-weight: bold;
+        @include transition-smooth;
+
+        &:hover,
+        &.active {
+            color: $color-primary-dark;
+        }
+    }
+
+    .nav-item {
+        @include hover-scale(1.1);
+    }
+}
+
+.navbar-toggler {
+    border-color: $color-primary;
+    @include transition-smooth;
+
+    &:hover {
+        border-color: $color-primary-dark;
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FA1E40' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

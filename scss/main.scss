@@ -1,0 +1,39 @@
+// ==========================================
+// ARCHIVO PRINCIPAL SCSS
+// ==========================================
+// Orden de importación:
+// 1. Utilities (variables, funciones, mixins)
+// 2. Base (reset, estilos base, tipografía)
+// 3. Layout (header, nav, footer)
+// 4. Components (botones, cards, etc)
+
+// ==========================================
+// UTILITIES - Herramientas reutilizables
+// ==========================================
+@use "utilities/variables";
+@use "utilities/mixins";
+@use "utilities/breakpoints";
+@use "utilities/animations";
+
+// ==========================================
+// BASE - Estilos fundamentales
+// ==========================================
+@use "base/reset";
+@use "base/base";
+@use "base/tipografia";
+
+// ==========================================
+// LAYOUT - Estructura de página
+// ==========================================
+@use "layout/header";
+@use "layout/nav";
+@use "layout/footer";
+
+// ==========================================
+// COMPONENTS - Componentes reutilizables
+// ==========================================
+@use "components/carousel";
+@use "components/cards";
+@use "components/grid";
+@use "components/forms";
+@use "components/buttons";

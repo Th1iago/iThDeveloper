@@ -1,0 +1,33 @@
+// ==========================================
+// GRID LAYOUT
+// ==========================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/breakpoints" as *;
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3";
+    gap: $spacing-large;
+    width: 100%;
+    padding: 20px 0;
+
+    // Tablet: 2 columnas
+    @include media-tablet {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card2"
+            "card3 card3";
+    }
+
+    // Desktop: 3 columnas
+    @include media-desktop {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "card1 card2 card3";
+    }
+}

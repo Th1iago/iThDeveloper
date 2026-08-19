@@ -1,0 +1,72 @@
+// ==========================================
+// TARJETAS (CARDS)
+// ==========================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.card {
+    display: grid;
+    grid-template-areas:
+        "icon"
+        "title"
+        "desc"
+        "link";
+    align-content: start;
+    gap: 0.6rem;
+    background-color: $color-background;
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    @include card-shadow;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-icon {
+        grid-area: icon;
+        font-size: 2.5rem;
+    }
+
+    .card-title {
+        grid-area: title;
+        color: $color-primary;
+        font-size: $font-size-card-title;
+        font-weight: bold;
+    }
+
+    .card-desc {
+        grid-area: desc;
+        line-height: $line-height-card;
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .card-link {
+        grid-area: link;
+        text-decoration: none;
+        font-weight: bold;
+        color: $color-primary;
+        justify-self: center;
+        @include transition-smooth;
+
+        &:hover {
+            color: $color-primary-dark;
+        }
+    }
+}
+
+.card1 {
+    grid-area: card1;
+}
+
+.card2 {
+    grid-area: card2;
+}
+
+.card3 {
+    grid-area: card3;
+}

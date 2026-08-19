@@ -1,0 +1,42 @@
+// ==========================================
+// CAROUSEL
+// ==========================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.carousel {
+    border-radius: $border-radius;
+    overflow: hidden;
+    @include carousel-shadow;
+
+    &-indicators {
+        [data-bs-target] {
+            background-color: $color-primary;
+        }
+    }
+
+    &-control-prev,
+    &-control-next {
+        width: 8%;
+    }
+
+    &-control-prev-icon,
+    &-control-next-icon {
+        background-color: $color-primary;
+        border-radius: 50%;
+        padding: 1.2rem;
+    }
+
+    &-caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: $border-radius-small;
+    }
+}
+
+.gallery-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+}

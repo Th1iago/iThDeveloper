@@ -1,0 +1,44 @@
+// ==========================================
+// ESTILOS BASE
+// ==========================================
+
+@use "../utilities/variables" as *;
+
+body {
+    background-color: $color-background;
+    padding: $spacing-small;
+    font-family: $font-family;
+}
+
+main {
+    padding: 20px;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: $spacing-large;
+    }
+}
+
+.main-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.main-content-text{
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-small;
+    max-width: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content-image{
+    max-width: 15rem;
+    height: 10 rem;
+    border-radius: 10px;
+}

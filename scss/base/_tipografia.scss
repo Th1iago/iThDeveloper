@@ -1,0 +1,73 @@
+// ==========================================
+// TIPOGRAFÍA
+// ==========================================
+
+@use "../utilities/variables" as *;
+
+body {
+    font-family: $font-family;
+}
+
+// Encabezados
+body main section h1 {
+    font-size: $font-size-h1;
+    color: $color-primary;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+// Párrafos y texto
+body main section p {
+    text-align: center;
+    line-height: $line-height-default;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: $color-primary;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $color-primary-dark;
+    }
+}
+
+// Títulos en tarjetas
+.card-title {
+    font-weight: bold;
+    font-size: $font-size-card-title;
+}
+
+// Texto pequeño
+small {
+    font-size: 0.875rem;
+}
+
+// Código
+code {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}

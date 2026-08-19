@@ -1,0 +1,50 @@
+// ==========================================
+// MIXINS REUTILIZABLES
+// ==========================================
+
+// Flexbox
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Sombras
+@mixin card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+@mixin carousel-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+// Texto
+@mixin text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Transiciones suave
+@mixin transition-smooth {
+    transition: all 0.3s ease;
+}
+
+// Efecto hover escala
+@mixin hover-scale($scale: 1.1) {
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale($scale);
+    }
+}

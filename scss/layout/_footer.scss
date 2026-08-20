@@ -2,11 +2,268 @@
 // FOOTER
 // ==========================================
 
-@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
 
 footer {
-    @include flex-center;
-    padding: 20px;
-    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-large;
+    gap: $spacing-large;
     width: 100%;
+    background: linear-gradient(180deg, $color-background 0%, rgba(37, 99, 235, 0.03) 100%);
+    border-top: 1px solid $color-border;
+    margin-top: auto;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, $color-primary, $color-secondary, transparent);
+    }
+
+    p {
+        margin: 0;
+        color: $color-text-muted;
+        font-size: $font-size-sm;
+        text-align: center;
+    }
+}
+
+// ====== FOOTER LINKS ======
+
+.footer-links {
+    display: flex;
+    gap: $spacing-large;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: $spacing-large 0;
+
+    a {
+        color: $color-text-secondary;
+        font-size: $font-size-sm;
+        transition: all $transition-smooth;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, $color-primary, $color-secondary);
+            transition: width $transition-smooth;
+        }
+
+        &:hover {
+            color: $color-primary;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ====== FOOTER SOCIAL ======
+
+.footer-social {
+    display: flex;
+    gap: $spacing-medium;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(37, 99, 235, 0.1);
+        color: $color-primary;
+        transition: all $transition-smooth;
+        text-decoration: none;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        &:hover {
+            background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+            color: $color-white;
+            transform: translateY(-3px);
+            box-shadow: $shadow-hover;
+        }
+    }
+}
+
+// ====== FOOTER SECTION ======
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+
+    h3 {
+        font-size: $font-size-h5;
+        color: $color-text-primary;
+        margin-bottom: $spacing-medium;
+    }
+
+    p {
+        color: $color-text-secondary;
+        font-size: $font-size-sm;
+        line-height: $line-height-default;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: $spacing-small;
+
+            a {
+                color: $color-text-secondary;
+                font-size: $font-size-sm;
+                transition: all $transition-smooth;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}
+
+// ====== FOOTER BOTTOM ======
+
+.footer-bottom {
+    border-top: 1px solid $color-border;
+    padding-top: $spacing-large;
+    margin-top: $spacing-large;
+    text-align: center;
+
+    p {
+        margin: 0;
+        color: $color-text-muted;
+        font-size: $font-size-xs;
+    }
+}
+
+// ====== FOOTER DIVIDER ======
+
+.footer-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, transparent, $color-border, transparent);
+}
+
+// ====== BACK TO TOP BUTTON ======
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    color: $color-white;
+    cursor: pointer;
+    transition: all $transition-smooth;
+    z-index: 999;
+    box-shadow: $shadow-lg;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    &.show {
+        display: flex;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-hover;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// ====== RESPONSIVE ======
+
+@media (max-width: $breakpoint-tablet) {
+    footer {
+        padding: $spacing-medium;
+        gap: $spacing-medium;
+        flex-direction: column;
+
+        p {
+            font-size: $font-size-xs;
+        }
+    }
+
+    .footer-links {
+        gap: $spacing-medium;
+    }
+
+    .footer-section {
+        margin-bottom: $spacing-medium;
+    }
+
+    .footer-divider {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        padding: $spacing-small $spacing-medium;
+    }
+
+    .footer-links {
+        gap: $spacing-small;
+        flex-direction: column;
+    }
+
+    .footer-social {
+        gap: $spacing-small;
+    }
+
+    .footer-social a {
+        width: 35px;
+        height: 35px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
 }

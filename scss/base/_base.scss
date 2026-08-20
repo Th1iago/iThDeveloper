@@ -8,6 +8,7 @@ body {
     background-color: $color-background;
     padding: $spacing-small;
     font-family: $font-family;
+    color: $color-text-primary;
 }
 
 main {
@@ -18,27 +19,114 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 40px 20px;
         gap: $spacing-large;
+        background: linear-gradient(180deg, rgba(245, 250, 255, 0.5) 0%, rgba(240, 249, 255, 0.3) 100%);
+        border-radius: $border-radius-large;
+    }
+    p{
+        text-align: center;
+        justify-content: center;
+    }
+    h1{
+        text-align: center;
+        justify-content: center;   
     }
 }
 
-.main-content{
+.main-content {
     display: flex;
     flex-direction: row;
+    gap: $spacing-large;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.main-content-text{
+.main-content-text {
     display: flex;
     flex-direction: column;
-    gap: $spacing-small;
+    gap: $spacing-medium;
     max-width: 600px;
     align-items: center;
     justify-content: center;
 }
 
-.main-content-image{
+.main-content-image {
     max-width: 15rem;
-    height: 10 rem;
-    border-radius: 10px;
+    height: auto;
+    border-radius: $border-radius-large;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+    border: 2px solid $color-border;
+}
+
+// ====== LINKS ======
+a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-smooth;
+
+    &:hover {
+        color: $color-primary-dark;
+        text-decoration: underline;
+    }
+}
+
+// ====== IMÁGENES ======
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// ====== BOTONES ======
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+// ====== INPUTS ======
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+// ====== LISTAS ======
+ul,
+ol {
+    list-style: none;
+}
+
+// ====== HEADINGS ======
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $font-weight-bold;
+    margin: 0;
+    color: $color-text-primary;
+}
+
+// ====== CODE ======
+code {
+    background-color: rgba(37, 99, 235, 0.08);
+    color: $color-primary-dark;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: $font-family-code;
+    font-size: 0.9em;
+}
+
+// ====== SMALL ======
+small {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
 }

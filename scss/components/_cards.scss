@@ -14,49 +14,104 @@
         "link";
     align-content: start;
     gap: 0.6rem;
-    background-color: $color-background;
-    border-radius: $border-radius;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-large;
     padding: 1.5rem;
-    @include card-shadow;
+    box-shadow: $shadow-card;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all $transition-smooth;
+    position: relative;
+    overflow: hidden;
+
+    // Fondo de gradiente sutil en hover
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+        opacity: 0;
+        transition: opacity $transition-smooth;
+        pointer-events: none;
+    }
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-8px);
+        box-shadow: $shadow-hover;
+        border-color: $color-primary-light;
+
+        &::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            color: $color-secondary;
+        }
+
+        .card-link {
+            color: $color-secondary;
+            transform: translateX(4px);
+        }
     }
 
     .card-icon {
         grid-area: icon;
         font-size: 2.5rem;
+        z-index: 1;
     }
 
     .card-title {
         grid-area: title;
         color: $color-primary;
         font-size: $font-size-card-title;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
+        transition: color $transition-smooth;
+        z-index: 1;
     }
 
     .card-desc {
         grid-area: desc;
         line-height: $line-height-card;
-        color: #666;
+        color: $color-text-secondary;
         font-size: 0.95rem;
+        z-index: 1;
     }
 
     .card-link {
         grid-area: link;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: $font-weight-semibold;
         color: $color-primary;
         justify-self: center;
-        @include transition-smooth;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background-color: rgba(37, 99, 235, 0.1);
+        transition: all $transition-smooth;
+        z-index: 1;
 
         &:hover {
-            color: $color-primary-dark;
+            color: $color-white;
+            background-color: $color-secondary;
+            transform: translateX(4px);
         }
     }
+}
+
+// ====== VARIANTES DE CARDS ======
+
+.card-primary {
+    border-left: 4px solid $color-primary;
+}
+
+.card-secondary {
+    border-left: 4px solid $color-secondary;
+}
+
+.card-accent {
+    border-left: 4px solid $color-accent;
 }
 
 .card1 {
@@ -70,3 +125,178 @@
 .card3 {
     grid-area: card3;
 }
+
+/// CARTA DE CONTACTO 
+
+.contact-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* From Uiverse.io by Centered101 */ 
+.contact-card {
+  width: 280px;
+  height: 280px;
+  background: white;
+  border-radius: 32px;
+  padding: 3px;
+  position: relative;
+  box-shadow: #604b4a30 0px 70px 30px -50px;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact-card .mail {
+  position: absolute;
+  right: 2rem;
+  top: 1.4rem;
+  background: transparent;
+  border: none;
+}
+
+.contact-card .mail svg {
+  stroke: #fbb9b6;
+  stroke-width: 3px;
+}
+
+.contact-card .mail svg:hover {
+  stroke: #f55d56;
+}
+
+.contact-card .profile-pic {
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  top: 3px;
+  left: 3px;
+  border-radius: 29px;
+  z-index: 1;
+  border: 0px solid $color-primary-light;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
+
+.contact-card .profile-pic img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.contact-card .profile-pic svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transform-origin: 45% 20%;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.contact-card .bottom {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: $color-primary;
+  top: 80%;
+  border-radius: 29px;
+  z-index: 2;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.contact-card .bottom .content {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 160px;
+}
+
+.contact-card .bottom .content .name {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.contact-card .bottom .content .about-me {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.contact-card .bottom .bottom-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container svg {
+  height: 20px;
+  fill: white;
+  filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container svg:hover {
+  fill: $color-primary-light;
+  transform: scale(1.2);
+}
+
+.contact-card:hover {
+  border-top-left-radius: 55px;
+}
+
+.contact-card:hover .bottom {
+  top: 20%;
+  border-radius: 80px 29px 29px 29px;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
+
+.contact-card:hover .profile-pic {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  z-index: 3;
+  border: 7px solid $color-primary-light;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+  transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+}
+
+.contact-card:hover .profile-pic:hover {
+  transform: scale(1.3);
+  border-radius: 0px;
+}
+
+.contact-card:hover .profile-pic img {
+  transform: scale(2.5);
+  -o-object-position: 0px 25px;
+  object-position: 0px 25px;
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.contact-card:hover .profile-pic svg {
+  transform: scale(2.5);
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+

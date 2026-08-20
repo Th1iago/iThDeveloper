@@ -3,7 +3,6 @@
 // ==========================================
 
 @use "../utilities/variables" as *;
-@use "../utilities/breakpoints" as *;
 
 .grid-container {
     display: grid;
@@ -15,19 +14,153 @@
     gap: $spacing-large;
     width: 100%;
     padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    // Tablet: 2 columnas
-    @include media-tablet {
+// ====== TABLET (600px+) ======
+
+@media (min-width: $breakpoint-tablet) {
+    .grid-container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
             "card1 card2"
             "card3 card3";
+        gap: $spacing-large;
+    }
+}
+
+// ====== DESKTOP (992px+) ======
+
+@media (min-width: $breakpoint-lg) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "card1 card2 card3";
+        gap: 2rem;
+    }
+}
+
+// ====== GRID ITEMS ======
+
+.card1 {
+    grid-area: card1;
+}
+
+.card2 {
+    grid-area: card2;
+}
+
+.card3 {
+    grid-area: card3;
+}
+
+// ====== ALTERNATIVAS DE GRID ======
+
+// Grid de 2 columnas
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-large;
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    // Desktop: 3 columnas
-    @include media-desktop {
+    @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Grid de 4 columnas
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-medium;
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// Grid flexible
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-large;
+}
+
+// ====== GALERÍA DE IMÁGENES ======
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-medium;
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-lg) {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "card1 card2 card3";
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: $border-radius-large;
+        aspect-ratio: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform $transition-smooth;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// ====== UTILIDADES ======
+
+.col-start-2 {
+    grid-column-start: 2;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3;
+}
+
+.row-start-2 {
+    grid-row-start: 2;
+}
+
+.row-span-2 {
+    grid-row: span 2;
+}
+
+// ====== RESPONSIVE MIXINS ======
+
+@media (max-width: $breakpoint-tablet) {
+    .grid-container {
+        gap: $spacing-medium;
+    }
+
+    .grid-2 {
+        gap: $spacing-medium;
+    }
+
+    .gallery-grid {
+        gap: $spacing-small;
     }
 }

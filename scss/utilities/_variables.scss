@@ -1,36 +1,103 @@
 // ==========================================
-// VARIABLES GLOBALES
+// VARIABLES GLOBALES - PALETA MODERNA
 // ==========================================
 
-// Colores
-$color-primary: #FA1E40;
-$color-primary-dark: #7a0f21;
-$color-background: #FFFFFF;
-$color-white: #FFFFFF;
-$color-black: #212121;
-$color-text-light: #1A1F28;
-$color-border: #414141;
+// ====== COLORES PRIMARIOS ======
+// Azul profundo moderno
+$color-primary: #2563EB;           // Azul vibrante
+$color-primary-dark: #1E40AF;      // Azul oscuro para hover
+$color-primary-light: #60A5FA;     // Azul claro para estados
 
-// Border radius
+// Púrpura accent (complementario)
+$color-secondary: #7C3AED;         // Púrpura vibrante
+$color-secondary-dark: #5B21B6;    // Púrpura oscuro
+
+// Cian/Turquesa (para interacciones)
+$color-accent: #06B6D4;            // Cian brillante
+$color-accent-dark: #0891B2;       // Cian oscuro
+
+// ====== FONDOS ======
+$color-background: #F8FAFC;        // Gris muy suave (no blanco puro)
+$color-white: #FFFFFF;
+$color-surface: #FFFFFF;           // Superficie de cards
+
+// ====== TEXTO ======
+$color-text-primary: #0F172A;      // Casi negro, muy legible
+$color-text-secondary: #475569;    // Gris oscuro
+$color-text-muted: #94A3B8;        // Gris para textos secundarios
+$color-text-light: #E2E8F0;        // Para texto sobre oscuro
+
+// ====== BORDES Y DIVISORES ======
+$color-border: #E2E8F0;            // Gris muy claro
+$color-border-dark: #CBD5E1;       // Gris claro
+
+// ====== ESTADOS ======
+$color-success: #10B981;           // Verde éxito
+$color-warning: #F59E0B;           // Ámbar advertencia
+$color-error: #EF4444;             // Rojo error
+$color-info: #06B6D4;              // Cian info
+
+// ====== GRADIENTES ======
+$gradient-primary: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+$gradient-primary-reverse: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+$gradient-dark: linear-gradient(135deg, #1E40AF 0%, #5B21B6 100%);
+
+// ====== BORDER RADIUS ======
 $border-radius: 12px;
 $border-radius-small: 8px;
+$border-radius-large: 16px;
 
-// Espaciado
+// ====== ESPACIADO ======
+$spacing-xs: 0.25rem;
 $spacing-small: 0.5rem;
 $spacing-medium: 1rem;
 $spacing-large: 2rem;
+$spacing-xl: 3rem;
 
-// Sombras
-$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.15);
-$shadow-carousel: 0 2px 8px rgba(0, 0, 0, 0.2);
+// ====== SOMBRAS ======
+$shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+$shadow-md: 0 4px 6px rgba(15, 23, 42, 0.1);
+$shadow-card: 0 4px 12px rgba(15, 23, 42, 0.08);
+$shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.12);
+$shadow-xl: 0 12px 32px rgba(15, 23, 42, 0.15);
+$shadow-hover: 0 12px 24px rgba(37, 99, 235, 0.15);
 
-// Tipografía
-$font-family: Arial, sans-serif;
+// ====== TIPOGRAFÍA ======
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-code: 'Courier New', monospace;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-h6: 1rem;
+$font-size-h5: 1.1rem;
+$font-size-h4: 1.25rem;
+$font-size-h3: 1.5rem;
+$font-size-h2: 1.75rem;
 $font-size-h1: 2rem;
-$font-size-card-title: 1.2rem;
-$line-height-default: 1.2rem;
-$line-height-card: 1.3rem;
 
-// Breakpoints
-$breakpoint-tablet: 600px;
+$font-size-card-title: 1.2rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ====== LÍNEAS ======
+$line-height-tight: 1.2;
+$line-height-default: 1.6;
+$line-height-card: 1.4;
+$line-height-relaxed: 1.8;
+
+// ====== TRANSICIONES ======
+$transition-fast: 0.15s ease;
+$transition-smooth: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// ====== BREAKPOINTS ======
+$breakpoint-sm: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 $breakpoint-desktop: 992px;

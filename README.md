@@ -13,7 +13,7 @@ Portfolio personal desarrollado como proyecto de un curso de desarrollo web fron
 ## Cómo compilar el SCSS
 
 npm install -g sass
-sass scss/main.scss css/style.css
+sass scss/main.scss styles/style.css
 
 # Link del repositorio vercel
 https://curso-coder-jet.vercel.app/
